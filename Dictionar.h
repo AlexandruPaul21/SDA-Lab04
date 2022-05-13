@@ -1,6 +1,7 @@
 #pragma once
 
 #define MAX 701
+//857
 #define NULL_TVALOARE -1
 typedef int TCheie;
 typedef int TValoare;
@@ -45,15 +46,15 @@ class Dictionar {
 	//cauta o cheie si returneaza valoarea asociata (daca dictionarul contine cheia) sau null: NULL_TVALOARE
     //Teta(1) - CF - elementul se află în capul listei tabelei de dispersie
     //Teta(n) - CD - toate elementele se dispersează în aceeași locație/
-    //Teta(n/1) - CM
-    //O(n) - CT
+    //Teta(1) - CM
+    //Teta(1) - CT
 	TValoare cauta(TCheie c) const;
 
 	//sterge o cheie si returneaza valoarea asociata (daca exista) sau null: NULL_TVALOARE
     //Teta(1) -CF - elementul ce trebuie sters e in capul listei
     //Teta(n) -CD - trebuie parcursă toată lista și toate elementele se dispersează în aceeași locație
-    //Teta(n/1) -CM
-    //O(n) - CT
+    //Teta(1) -CM
+    //Teta(1) - CT
 	TValoare sterge(TCheie c);
 
 	//returneaza numarul de perechi (cheie, valoare) din dictionar
@@ -68,6 +69,13 @@ class Dictionar {
     //Teta(1) CF=CD=CM=CT
 	IteratorDictionar iterator() const;
 
+    //adauga in dictionarul curent toate perechile din d a caror cheie nu se afla deja in dictionar
+    //returneaza numarul de perechi adaugate
+    //Teta(n) - CD - cand cautarea se realizeaza in Teta(n)
+    //Teta(1) - CF
+    //Teta(1) - CM
+    //Teta(1) - CT
+    int adaugaInexistene(Dictionar& d);
 
 	// destructorul dictionarului
     //Teta(n) CF=CD=CM=CT

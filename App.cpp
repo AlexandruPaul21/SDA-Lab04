@@ -10,7 +10,7 @@ int main() {
 	testAll();
 	testAllExtins();
 
-	cout<<" "<< "That's all!" << endl;
+	cout<<"That's all!" << endl;
 	return 0;
 }
 

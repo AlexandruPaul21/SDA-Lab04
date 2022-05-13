@@ -151,6 +151,21 @@ int Dictionar::d(TCheie ch) const{
     return hashCode(ch)%m;
 }
 
+int Dictionar::adaugaInexistene(Dictionar &d) {
+    auto it=d.iterator();
+    int ret=0;
+    while(it.valid()){
+        TCheie ch=it.element().first;
+        TValoare val=it.element().second;
+        if(cauta(ch)==NULL_TVALOARE){
+            adauga(ch,val);
+            ++ret;
+        }
+        it.urmator();
+    }
+    return ret;
+}
+
 
 Nod::Nod(TElem elem, Nod *urm) {
     this->elem=elem;

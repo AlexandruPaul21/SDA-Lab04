@@ -1,8 +1,10 @@
 #include "TestScurt.h"
 #include <assert.h>
+#include <iostream>
 #include "Dictionar.h"
 #include "IteratorDictionar.h"
 
+using namespace std;
 
 void testAll() { //apelam fiecare functie sa vedem daca exista
 	Dictionar d;
@@ -35,5 +37,21 @@ void testAll() { //apelam fiecare functie sa vedem daca exista
 	assert(s1 == 19);
 	assert(s2 == 19);
 
+    //test func noua
+    Dictionar d1,d2;
+    for(int i=0; i<10; ++i){
+        d1.adauga(i,2*i);
+    }
+    for(int i=0; i<10; ++i){
+        d2.adauga(2*i,2*i);
+    }
+    d1.adaugaInexistene(d2);
+    IteratorDictionar it=d1.iterator();
+    for(int i=0; i<10; ++i){
+        assert(it.element().first==it.element().second*2);
+    }
+    for(int i=10; i<=18; ++i){
+        assert(it.element().first==it.element().second);
+    }
 }
 
